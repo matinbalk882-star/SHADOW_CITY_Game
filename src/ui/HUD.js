@@ -79,6 +79,13 @@ export class HUD {
         </button>
       </div>
 
+      <!-- Enter Vehicle Prompt when near car -->
+      <div class="car-prompt-container hidden" id="car-prompt">
+        <button class="car-prompt-btn" id="btn-enter-car">
+          🏎️ سوار ماشین شدن
+        </button>
+      </div>
+
       <!-- ON-FOOT CONTROLS (ANDROIDS / TOUCH) -->
       <div class="onfoot-controls" id="onfoot-controls">
         <!-- Bottom Left: Virtual Joystick -->
@@ -376,6 +383,13 @@ export class HUD {
     const btnShop = document.getElementById('btn-open-shop');
     if (btnShop) btnShop.onclick = () => this.game.menuManager.openGunShop();
 
+    // Enter car prompt button
+    const btnEnterCar = document.getElementById('btn-enter-car');
+    if (btnEnterCar) {
+      btnEnterCar.onclick = () => this.game.input.toggleVehicleEnterExit();
+      btnEnterCar.ontouchstart = (e) => { e.preventDefault(); this.game.input.toggleVehicleEnterExit(); };
+    }
+
     // Vehicle buttons: Steer left / right
     const btnSteerL = document.getElementById('btn-steer-left');
     if (btnSteerL) {
@@ -464,11 +478,40 @@ export class HUD {
     const pPos = this.game.player.getPosition();
     const shopPos = this.game.city.gunShopKeeperPosition;
 
+    // Shop prompt check
     const distToShop = pPos.distanceTo(shopPos);
     if (distToShop < 3.8) {
       this.showShopPrompt(true);
     } else {
       this.showShopPrompt(false);
+    }
+
+    // Car enter prompt check (when on foot)
+    const carPrompt = document.getElementById('car-prompt');
+    if (carPrompt) {
+      if (this.game.player.inVehicle) {
+        carPrompt.classList.add('hidden');
+      } else {
+        let nearCar = false;
+        if (this.game.vehicleManager.lamborghini) {
+          if (pPos.distanceTo(this.game.vehicleManager.lamborghini.position) < 4.5) {
+            nearCar = true;
+          }
+        }
+        if (!nearCar) {
+          for (const c of this.game.vehicleManager.trafficCars) {
+            if (!c.isDestroyed && pPos.distanceTo(c.position) < 3.8) {
+              nearCar = true;
+              break;
+            }
+          }
+        }
+        if (nearCar) {
+          carPrompt.classList.remove('hidden');
+        } else {
+          carPrompt.classList.add('hidden');
+        }
+      }
     }
   }
 }
