@@ -1,0 +1,1651 @@
+/**
+ * main.css - Cyberpunk GTA Theme for SHADOW CITY
+ * Responsive Mobile & Desktop Styling
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@600;700&family=Vazirmatn:wght@400;600;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #080a0f;
+  color: #ffffff;
+  font-family: 'Vazirmatn', 'Rajdhani', sans-serif;
+  direction: rtl;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================================================
+   1. MAIN MENU
+   ========================================================================= */
+.cyber-main-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: radial-gradient(circle at center, rgba(16, 24, 40, 0.9) 0%, rgba(6, 9, 15, 0.98) 100%),
+              linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(255, 0, 85, 0.05) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.menu-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.fullscreen-btn {
+  background: rgba(0, 240, 255, 0.15);
+  border: 1px solid #00f0ff;
+  color: #00f0ff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-family: 'Vazirmatn', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  transition: all 0.2s;
+}
+
+.fullscreen-btn:active {
+  transform: scale(0.95);
+  background: #00f0ff;
+  color: #000;
+}
+
+.menu-coin-badge, .hud-coin-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(20, 25, 35, 0.85);
+  border: 2px solid #f5b041;
+  padding: 8px 16px;
+  border-radius: 24px;
+  box-shadow: 0 0 20px rgba(245, 176, 65, 0.4);
+  font-family: 'Rajdhani', 'Vazirmatn', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #f5b041;
+}
+
+.menu-center-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+
+.game-cyber-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.glitch-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(38px, 9vw, 84px);
+  font-weight: 900;
+  letter-spacing: 6px;
+  color: #ffffff;
+  text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff, 0 0 80px #ff0055;
+  animation: pulseGlow 2.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { text-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff; }
+  100% { text-shadow: 0 0 30px #00f0ff, 0 0 60px #ff0055, 0 0 90px #ff0055; }
+}
+
+.game-subtitle {
+  font-size: clamp(16px, 3.5vw, 24px);
+  color: #00f0ff;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.menu-main-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.cyber-btn {
+  position: relative;
+  background: #111722;
+  border: 2px solid #00f0ff;
+  color: #ffffff;
+  padding: 16px 28px;
+  font-family: 'Vazirmatn', 'Orbitron', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cyber-btn.primary-btn {
+  background: linear-gradient(135deg, #0099ff 0%, #00f0ff 100%);
+  color: #06090f;
+  font-weight: 900;
+  border: none;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+}
+
+.cyber-btn:active {
+  transform: scale(0.96);
+}
+
+.menu-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  letter-spacing: 1px;
+}
+
+/* =========================================================================
+   2. LOADING SCREEN
+   ========================================================================= */
+.cyber-loading-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 60;
+  background: #090c12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  max-width: 440px;
+}
+
+.loading-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: #00f0ff;
+  text-shadow: 0 0 20px #00f0ff;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(0, 240, 255, 0.2);
+  border-top-color: #00f0ff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-bar-wrap {
+  width: 100%;
+  height: 12px;
+  background: #151b26;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #00f0ff;
+}
+
+.loading-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #00f0ff, #ff0055);
+  box-shadow: 0 0 15px #00f0ff;
+  transition: width 0.15s ease-out;
+}
+
+.loading-status {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* =========================================================================
+   3. CHARACTER CUSTOMIZER
+   ========================================================================= */
+.cyber-customizer-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 55;
+  background: #0a0d14;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.customizer-gender-bar {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.gender-btn {
+  background: #141a24;
+  border: 2px solid #334155;
+  color: #cbd5e1;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gender-btn.active {
+  background: #00f0ff;
+  color: #000000;
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.customizer-body {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.preview-3d-box {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle at center, #1b2434 0%, #0d121c 100%);
+  border-radius: 16px;
+  border: 1px solid #00f0ff;
+  overflow: hidden;
+}
+
+.preview-drag-hint {
+  position: absolute;
+  bottom: 12px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #00f0ff;
+  pointer-events: none;
+}
+
+.customizer-controls-panel {
+  flex: 1;
+  background: rgba(18, 24, 38, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+}
+
+.section-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #00f0ff;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.outfit-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.outfit-chip {
+  background: #121824;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.outfit-chip.selected {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: #00f0ff;
+  color: #00f0ff;
+  font-weight: 700;
+}
+
+.color-swatches-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.color-swatch.selected {
+  border-color: #00f0ff;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+/* =========================================================================
+   4. IN-GAME HUD & RADAR
+   ========================================================================= */
+.game-hud-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hud-top-right {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.hud-circle-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(18, 24, 38, 0.85);
+  border: 2px solid #00f0ff;
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  position: relative;
+}
+
+.hud-circle-btn:active {
+  transform: scale(0.92);
+}
+
+.cam-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: #ff0055;
+  color: #fff;
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-weight: 900;
+}
+
+.hud-pill-btn {
+  background: rgba(18, 24, 38, 0.85);
+  border: 1px solid #00f0ff;
+  color: #00f0ff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* MiniMap */
+.minimap-container {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  overflow: hidden;
+  background: #0a0e17;
+  z-index: 15;
+  pointer-events: auto;
+}
+
+.minimap-badge {
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+  text-align: center;
+  font-size: 9px;
+  color: #00f0ff;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* On-Foot Touch Controls */
+.onfoot-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.joystick-zone {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.joystick-base {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(10, 15, 25, 0.6) 100%);
+  border: 2px solid rgba(0, 240, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.joystick-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 15px #00f0ff;
+  transition: transform 0.05s ease-out;
+}
+
+.hud-btn {
+  position: absolute;
+  pointer-events: auto;
+  background: rgba(18, 24, 38, 0.88);
+  border: 2px solid #00f0ff;
+  color: #ffffff;
+  border-radius: 24px;
+  font-family: 'Vazirmatn', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+}
+
+.hud-btn:active {
+  transform: scale(0.92);
+}
+
+.sprint-btn {
+  bottom: 175px;
+  left: 24px;
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.sprint-btn.active {
+  background: #00ff88;
+  color: #000;
+  border-color: #00ff88;
+  box-shadow: 0 0 20px #00ff88;
+}
+
+.aim-btn {
+  bottom: 175px;
+  right: 24px;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-color: #ff0055;
+  color: #ff0055;
+}
+
+.wheel-btn {
+  bottom: 235px;
+  right: 24px;
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.jump-btn {
+  bottom: 24px;
+  right: 140px;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attack-btn {
+  bottom: 24px;
+  right: 24px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 18px;
+  background: linear-gradient(135deg, #ff0055 0%, #ff5500 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* In-Vehicle Controls */
+.invehicle-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.steer-buttons-group {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.steer-btn {
+  width: 75px;
+  height: 75px;
+  border-radius: 16px;
+  background: rgba(18, 24, 38, 0.9);
+  border: 2px solid #00f0ff;
+  color: #00f0ff;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.steer-btn:active {
+  background: #00f0ff;
+  color: #000;
+}
+
+.vehicle-mid-controls {
+  position: absolute;
+  bottom: 120px;
+  left: 24px;
+  display: flex;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.drift-btn {
+  position: static;
+  padding: 10px 16px;
+  border-color: #ff9900;
+  color: #ff9900;
+}
+
+.horn-btn {
+  position: static;
+  padding: 10px 16px;
+}
+
+.vehicle-right-controls {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  pointer-events: auto;
+}
+
+.vehicle-pedal-btn {
+  padding: 16px 28px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  border: none;
+}
+
+.gas-btn {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  width: 140px;
+}
+
+.brake-btn {
+  background: linear-gradient(135deg, #ff0055 0%, #cc0044 100%);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+  width: 140px;
+}
+
+.exit-car-btn {
+  position: static;
+  padding: 8px 16px;
+  font-size: 13px;
+  border-color: #f5b041;
+}
+
+/* =========================================================================
+   5. WEAPON WHEEL (8-SLOT GTA STYLE)
+   ========================================================================= */
+.weapon-wheel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 12, 18, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.weapon-wheel-center {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 240, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff;
+  margin-bottom: 8px;
+}
+
+.wheel-slots-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.wheel-slot {
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  margin-top: -33px;
+  margin-left: -33px;
+  border-radius: 50%;
+  background: #151c28;
+  border: 2px solid #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.wheel-slot.selected {
+  background: #00f0ff;
+  color: #000;
+  border-color: #ffffff;
+  transform: scale(1.15) !important;
+  box-shadow: 0 0 20px #00f0ff;
+}
+
+.wheel-slot.locked {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.slot-icon {
+  font-size: 22px;
+}
+
+.slot-name {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.slot-lock {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+}
+
+.wheel-close-btn {
+  background: #ff0055;
+  border: none;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* =========================================================================
+   6. SMARTPHONE (گوشی موبایل)
+   ========================================================================= */
+.phone-wrapper {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 330px;
+  height: 580px;
+  z-index: 45;
+  pointer-events: auto;
+  animation: phoneSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes phoneSlideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.cyber-phone {
+  width: 100%;
+  height: 100%;
+  background: #0d121c;
+  border: 3px solid #00f0ff;
+  border-radius: 36px;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.5), inset 0 0 15px rgba(0, 240, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 12px 14px;
+}
+
+.phone-status-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #94a3b8;
+  padding: 4px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.phone-screen {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 4px;
+}
+
+.phone-home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.phone-app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+
+.phone-app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.app-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: #182233;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s;
+}
+
+.phone-app-item:active .app-icon {
+  transform: scale(0.92);
+}
+
+.dialer-icon { background: linear-gradient(135deg, #00ff88, #009944); }
+.bank-icon { background: linear-gradient(135deg, #f5b041, #d35400); }
+.radio-icon { background: linear-gradient(135deg, #ff0055, #990033); }
+.camera-icon { background: linear-gradient(135deg, #00f0ff, #0066cc); }
+.gallery-icon { background: linear-gradient(135deg, #a855f7, #6b21a8); }
+
+.app-label {
+  font-size: 12px;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.phone-widget {
+  background: rgba(20, 28, 42, 0.8);
+  border: 1px solid #00f0ff;
+  border-radius: 16px;
+  padding: 14px;
+  text-align: center;
+}
+
+.widget-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  color: #00f0ff;
+}
+
+.widget-desc {
+  font-size: 14px;
+  color: #f5b041;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.phone-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.phone-home-btn {
+  background: none;
+  border: 2px solid #64748b;
+  color: #64748b;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.phone-close-btn {
+  background: rgba(255, 0, 85, 0.2);
+  border: 1px solid #ff0055;
+  color: #ff0055;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* Phone Apps Internal */
+.phone-app {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  padding-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #00f0ff;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #00f0ff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Dialer App */
+.dialer-display {
+  background: #141c2b;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  min-height: 48px;
+}
+
+.dialer-number {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #00f0ff;
+}
+
+.dialpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.key-btn {
+  background: #182234;
+  border: 1px solid #334155;
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.key-btn:active { background: #00f0ff; color: #000; }
+
+.dialer-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.call-btn {
+  flex: 1;
+  background: #00ff88;
+  border: none;
+  color: #000;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.del-btn {
+  background: #334155;
+  border: none;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Bank App */
+.bank-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid #f5b041;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 0 20px rgba(245, 176, 65, 0.2);
+}
+
+.card-number {
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-top: 8px;
+  color: #cbd5e1;
+}
+
+.card-balance-title {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 14px;
+}
+
+.card-balance {
+  font-size: 22px;
+  font-weight: 900;
+  color: #f5b041;
+}
+
+.bank-stats {
+  background: #141c2b;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Radio App */
+.radio-disc {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff0055 0%, #1a1a24 100%);
+  border: 3px solid #ff0055;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.radio-disc.spinning {
+  animation: spin 3s linear infinite;
+}
+
+.song-info {
+  text-align: center;
+}
+
+.song-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ff0055;
+}
+
+.song-artist {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.radio-visualizer {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  height: 24px;
+  align-items: flex-end;
+}
+
+.radio-visualizer .bar {
+  width: 6px;
+  height: 6px;
+  background: #00f0ff;
+  border-radius: 3px;
+  transition: height 0.1s;
+}
+
+.radio-visualizer.active .bar:nth-child(1) { animation: bounce 0.4s infinite alternate; }
+.radio-visualizer.active .bar:nth-child(2) { animation: bounce 0.6s infinite alternate 0.1s; }
+.radio-visualizer.active .bar:nth-child(3) { animation: bounce 0.3s infinite alternate 0.2s; }
+.radio-visualizer.active .bar:nth-child(4) { animation: bounce 0.5s infinite alternate 0.15s; }
+.radio-visualizer.active .bar:nth-child(5) { animation: bounce 0.7s infinite alternate 0.05s; }
+.radio-visualizer.active .bar:nth-child(6) { animation: bounce 0.4s infinite alternate 0.25s; }
+
+@keyframes bounce {
+  from { height: 6px; }
+  to { height: 24px; }
+}
+
+.radio-play-btn {
+  width: 100%;
+  background: #ff0055;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.radio-volume-section {
+  background: #141c2b;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+/* Camera App */
+.camera-viewfinder {
+  height: 220px;
+  border: 2px dashed #00f0ff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.cam-crosshair {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(0, 240, 255, 0.6);
+  border-radius: 50%;
+}
+
+.cam-mode-tag {
+  position: absolute;
+  bottom: 8px;
+  font-size: 11px;
+  color: #00f0ff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.camera-zoom-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.shutter-btn {
+  width: 100%;
+  background: #00f0ff;
+  border: none;
+  color: #000;
+  padding: 12px;
+  border-radius: 16px;
+  font-weight: 900;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.camera-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  z-index: 999;
+  pointer-events: none;
+  animation: flashFade 0.25s ease-out forwards;
+}
+
+@keyframes flashFade {
+  from { opacity: 0.9; }
+  to { opacity: 0; }
+}
+
+/* Gallery App */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.gallery-thumb {
+  position: relative;
+  height: 110px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.photo-del-btn {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(255, 0, 85, 0.8);
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* =========================================================================
+   7. SHOP & PAUSE MODALS
+   ========================================================================= */
+.cyber-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 9, 15, 0.88);
+  backdrop-filter: blur(10px);
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cyber-shop-card {
+  background: #0d121c;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.4);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.shop-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #00f0ff;
+}
+
+.shop-coins-display {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f5b041;
+}
+
+.shop-close-btn {
+  background: none;
+  border: none;
+  color: #ff0055;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.shop-weapons-grid {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  overflow-y: auto;
+}
+
+.gun-shop-item {
+  background: #141b28;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.gun-square-preview {
+  width: 100%;
+  height: 100px;
+  background: radial-gradient(circle, #1f293d 0%, #0c1017 100%);
+  border: 1px solid #00f0ff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gun-icon-big {
+  font-size: 38px;
+}
+
+.gun-name-tag {
+  font-size: 13px;
+  font-weight: 700;
+  color: #00f0ff;
+}
+
+.gun-en-name {
+  font-size: 11px;
+  color: #94a3b8;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.gun-desc {
+  font-size: 11px;
+  color: #cbd5e1;
+  min-height: 32px;
+}
+
+.gun-price-tag {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f5b041;
+}
+
+.gun-buy-btn {
+  background: linear-gradient(135deg, #00f0ff 0%, #0099ff 100%);
+  border: none;
+  color: #000;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gun-buy-btn.owned {
+  background: #1e293b;
+  color: #64748b;
+  cursor: default;
+}
+
+.error-shake {
+  animation: shake 0.35s ease-in-out;
+  background: #ff0055 !important;
+  color: #fff !important;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* Pause Menu */
+.pause-menu-card {
+  background: #0d121c;
+  border: 2px solid #00f0ff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.4);
+}
+
+.pause-header {
+  font-size: 20px;
+  font-weight: 900;
+  color: #00f0ff;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.pause-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cyber-menu-btn {
+  background: #141c2b;
+  border: 1px solid #00f0ff;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.cyber-menu-btn.danger-btn {
+  border-color: #ff0055;
+  color: #ff0055;
+}
+
+.menu-setting-group {
+  background: #111724;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quality-pills {
+  display: flex;
+  gap: 6px;
+}
+
+.q-btn {
+  flex: 1;
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.q-btn.active {
+  background: #00f0ff;
+  color: #000;
+  font-weight: 700;
+}
+
+/* Shop prompt & Car prompt */
+.shop-prompt-container, .car-prompt-container {
+  position: absolute;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.shop-prompt-btn, .car-prompt-btn {
+  background: linear-gradient(135deg, #00f0ff 0%, #ff0055 100%);
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.7);
+  animation: pulsePrompt 1.2s infinite alternate;
+}
+
+.car-prompt-btn {
+  background: linear-gradient(135deg, #f5b041 0%, #ff0055 100%);
+  box-shadow: 0 0 25px rgba(245, 176, 65, 0.7);
+}
+
+@keyframes pulsePrompt {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+/* Sniper Scope Overlay */
+.sniper-scope-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.scope-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 35%, rgba(0, 0, 0, 0.96) 65%);
+}
+
+.scope-reticle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  border: 2px solid rgba(0, 240, 255, 0.7);
+  border-radius: 50%;
+}
+
+.scope-line-h {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  right: -40px;
+  height: 1px;
+  background: #ff0055;
+}
+
+.scope-line-v {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  bottom: -40px;
+  width: 1px;
+  background: #ff0055;
+}
+
+.scope-range {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  color: #00f0ff;
+}
+
+/* Crosshair */
+.cyber-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #00f0ff;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 6px #00f0ff;
+}
+
+/* Toasts */
+.toast-container {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 80;
+  pointer-events: none;
+}
+
+.cyber-toast {
+  background: rgba(13, 18, 28, 0.92);
+  border: 1px solid #00f0ff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  animation: toastIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-coin {
+  border-color: #f5b041;
+  color: #f5b041;
+  box-shadow: 0 0 20px rgba(245, 176, 65, 0.5);
+}
+
+.toast-success {
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
+.toast-error {
+  border-color: #ff0055;
+  color: #ff0055;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+@keyframes toastIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
